@@ -14,8 +14,7 @@ public class FSMDice {
         on.add(cn.getName());
     }
 
-    public void run() {
-        int fail = 0;
+    public String run() {
         int i = 0;
         Random rand = new Random();
         while (i == 0) {
@@ -29,6 +28,7 @@ public class FSMDice {
                         break;
                     }
                 }
+
             } else {
                 if (letter == 1) {
                     for (Node current : TheNodes) {
@@ -39,21 +39,15 @@ public class FSMDice {
                             break;
                         }
                     }
-                } else {
-                    fail = 1;
                 }
             }
             String last = (on.get(on.size() - 1));
             if (last.contains("d")) {
                 i += 1;
             }}
-
-        if (fail == 1) {
-            System.out.println("The FSM has failed");
-            System.out.println("There has no other followable connection found");
-        } else {
             System.out.println("De dobbelsteen is geeindigd op: " + on.get(on.size()-1));
-        }
+            return on.get(on.size()-1);
+
     }
 }
 

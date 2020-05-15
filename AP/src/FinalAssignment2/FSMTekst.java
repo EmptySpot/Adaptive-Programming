@@ -1,6 +1,7 @@
 package FinalAssignment2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FSMTekst {
     ArrayList<String> on = new ArrayList<>();
@@ -13,7 +14,8 @@ public class FSMTekst {
         on.add(cn.getName());
     }
 
-    public void run(String input) {
+    public List<String> run(String input) {
+
         int fail = 0;
         System.out.println(input);
         int lengthInput = input.length();
@@ -46,9 +48,12 @@ public class FSMTekst {
         if (fail == 1) {
             System.out.println("The FSM has failed");
             System.out.println("There has no other followable connection found");
+            return on;
         }
         else {
             System.out.println("Path followed: " + on);
+            return on;
         }
     }
 }
+
