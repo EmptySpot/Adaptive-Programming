@@ -48,6 +48,8 @@ public class FSMTekst {
         if (fail == 1) {
             System.out.println("The FSM has failed");
             System.out.println("There has no other followable connection found");
+            on.clear();
+            on.add("F");
             return on;
         }
         else {

@@ -28,8 +28,14 @@ class FSMTekstTest {
         Answer.add("0");
         FSMTekst FSMTekst = new FSMTekst(nodesarray);
 
+        String Test2 = "CBBA";
+
+        List<String> Answer2 = new ArrayList<>();
+        Answer2.add("F");
+        FSMTekst FSMTekst2 = new FSMTekst(nodesarray);
+
 
         assertEquals(Answer, FSMTekst.run(Test));
-
+        assertEquals(Answer2, FSMTekst2.run(Test2));
     }
 }
