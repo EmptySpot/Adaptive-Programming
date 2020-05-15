@@ -1,17 +1,15 @@
-package f2b;
+package FinalAssignment2;
 
-public class Node2 {
+public class Node {
     private String firstNode;
     private String secondNode;
     private String name;
 
-    public Node2(String nm, String fn, String sn){
+    public Node(String nm, String fn, String sn){
         name = nm;
         firstNode = fn;
         secondNode = sn;
     }
-
-
 
     public String getName() {
         return name;
