@@ -1,8 +1,6 @@
 package FinalAssignment2;
-
-
-
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,7 +34,16 @@ public class Main {
         nodesarray.add(s12);
 
 
-        f2bfsm f2bfsm = new f2bfsm(nodesarray);
-        f2bfsm.run();
+        System.out.println("Which to run? Dice / Tekst:");
+        Scanner lineinput = new Scanner(System.in);
+        String Ninput = lineinput.nextLine().toUpperCase();
+        if (Ninput.contains("D")){
+            FSMDice FSMDice = new FSMDice(nodesarray);
+            FSMDice.run();}
+        else {
+        FSMTekst FSMTekst = new FSMTekst(nodesarray);
+        System.out.println("Give a line: ");
+        String input = lineinput.nextLine().toUpperCase();
+        FSMTekst.run(input);}
     }
 }
