@@ -1,1 +1,10 @@
-With the code I have been helped by Quinn, Nonne and Thijme.
+The code has been improved a bit by Thijme and Quinn.
+
+In de main krijg je 2 keuzes: De keuze om de dice te laten werken of om een tekst invoer te doen. Dit werkt op basis van tekst invoer.
+De dice gaat af zodra je iets met de letter d invoert en op enter drukt.
+Anders gaat hij naar de tekstinvoer.
+
+De Tekstinvoer werkt op lists. Waardoor je elke keer een nieuw ding in moet voeren voor de list tot je tevreden bent.
+Huidig werkt A (Enter) of B (Enter), C werkt op sommige locaties. Deze is echter niet overal als node route beschikbaar.
+Dit kan makkelijk worden aangepast in de tekst erboven.
+Als je de genoeg A en B`s hebt toegevoegd moet je simpelweg de tekst close sturen. De code ziet dit aan als loopbreker en zal gaan beginnnen.
