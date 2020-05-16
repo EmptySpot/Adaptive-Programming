@@ -2,29 +2,32 @@ package FinalAssignment2;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class FSMDiceTest {
 
-    Node s0 = new Node("0", "1", "2");
-    Node s1 = new Node("1", "0", "d1");
-    Node s2 = new Node("2", "0", "d2");
-    Node s3 = new Node("d1", null, null);
-    Node s4 = new Node("d2", null, null);
+        Node s0 = new Node("0");
+        Node s1 = new Node("1");
+        Node s2 = new Node("2");
+
+        Node d1 = new Node("d1");
+        Node d2 = new Node("d2");
+        Node d3 = new Node("d3");
+
 
     @Test
     void run() {
-        ArrayList<Node> nodesarray = new ArrayList<>();
-        nodesarray.add(s0);
-        nodesarray.add(s1);
-        nodesarray.add(s2);
-        nodesarray.add(s3);
-        nodesarray.add(s4);
+        s0.setDictio('A',s1);
+        s0.setDictio('B',s2);
+        s0.setDictio('C',d1);
+        s1.setDictio('A',s2);
+        s1.setDictio('B',d2);
+        s2.setDictio('A',s0);
+        s2.setDictio('B',d3);
 
-        FSMDice FSMDice = new FSMDice(nodesarray);
-        String Answer = FSMDice.run();
+
+        FSMDice FSMDice = new FSMDice();
+        String Answer = (FSMDice.run(s0).getName());
 
         if (Answer.equals("d1")) {
             assertEquals("d1", Answer);
@@ -33,7 +36,7 @@ class FSMDiceTest {
             assertEquals("d2", Answer);
         }
         else {
-            assertEquals("d2", Answer);
+            assertEquals("d3", Answer);
         }
 
 

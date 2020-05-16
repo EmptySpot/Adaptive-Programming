@@ -1,61 +1,42 @@
 package FinalAssignment2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class FSMTekst {
-    ArrayList<String> on = new ArrayList<>();
-    private ArrayList <Node> TheNodes;
-    private Node cn;
 
-    public FSMTekst(ArrayList<Node> arraynodes) {
-        TheNodes = arraynodes;
-        cn = TheNodes.get(0);
-        on.add(cn.getName());
-    }
-
-    public List<String> run(String input) {
-
-        int fail = 0;
-        System.out.println(input);
-        int lengthInput = input.length();
-        int i = 0;
-        while (i < lengthInput){ char letter = input.charAt(i);
-            if (letter == 'A') {
-                for (Node current : TheNodes) {
-                    String huidig = (current.getName());
-                    if (huidig == (cn.getFirstnode())) {
-                        on.add(huidig);
-                        cn = current;
-                        break;
-                    }
+    public static List run(Node node, List inp, List ans) {
+        ans.add(node.getName());
+        Collection value = node.getDictio().values();
+        List theValList = new ArrayList(value);
+        Collection keys = node.getDictio().keySet();
+        List theKeyList = new ArrayList(keys);
+        if (inp.size() != 0) {
+            String firstItem = (String) inp.get(0);
+            int i = 0;
+            int location = -1;
+            while (i < theKeyList.size()) {
+                String tester = String.valueOf(theKeyList.get(i));
+                if (firstItem.equals(tester)){
+                    location = i;
+                    i = theKeyList.size();
+                } else {
+                    i += 1;
                 }
-            } else {
-                if (letter == 'B') {
-                    for (Node current : TheNodes) {
-                        String huidig = (current.getName());
-                        if (huidig == (cn.getSecondnode())) {
-                            on.add(huidig);
-                            cn = current;
-                            break;
-                        }
-                    }
-                } else { fail = 1;
-                }
+
             }
-            i += 1;}
-
-        if (fail == 1) {
-            System.out.println("The FSM has failed");
-            System.out.println("There has no other followable connection found");
-            on.clear();
-            on.add("F");
-            return on;
-        }
-        else {
-            System.out.println("Path followed: " + on);
-            return on;
+            if (location != -1) {
+                node = (Node) theValList.get(location);
+                inp.remove(0);
+                return (run(node, inp, ans));
+            } else {
+                ans.add("F");
+                return ans;
+            }
+        } else {
+            return ans;
         }
     }
-}
 
+}

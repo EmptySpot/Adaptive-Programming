@@ -1,25 +1,25 @@
 package FinalAssignment2;
+import java.util.*;
 
 public class Node {
-    private String firstNode;
-    private String secondNode;
     private String name;
+    private Map<Character, Node> dictio = new HashMap<>();
 
-    public Node(String nm, String fn, String sn){
+    public Node(String nm){
         name = nm;
-        firstNode = fn;
-        secondNode = sn;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getFirstnode(){
-        return firstNode;
-    }
-    public String getSecondnode(){
-        return secondNode;
+
+
+    public void setDictio(char nummer, Node node) {
+        dictio.put(nummer, node);
     }
 
+    public Map<Character, Node> getDictio() {
+        return dictio;
+    }
 }
